@@ -1,5 +1,5 @@
 <!-- See https://squidfunk.github.io/mkdocs-material/reference/ -->
-# Part 2: Set up your code and deploy a machine to become a runner
+# Part 2: Setup a Github Self-hosted runner
 
 ## Steps
 
@@ -9,7 +9,10 @@ For this workshop, we'll be making a copy of the Equinix Metal CLI code reposito
 
 Click on this link "[Fork Metal CLI](https://github.com/equinix/metal-cli/fork)" and fork a copy to your own Github account.
 
-### 2. Disable the actions on your fork for now till we're ready for them
+### 2. Disable the actions on your fork of metal-cli
+
+Go to your fork of metal-cli and click on 'Settings' -> 'Actions' -> 'Runners' and disable the actions for now.
+![Disable Actions Screenshot](../images/disable-actions.png)
 
 ### 3. Deploy a new machine on Equinix Metal
 
@@ -21,5 +24,5 @@ metal device create -p $METAL_PROJECT_ID -P c3.medium.x86 -m da -H github-runner
 
 Before proceeding to the next part let's take a few minutes to discuss what we did. Here are some questions to start the discussion.
 
-- You prepared a code repository to use for creating and testing your runners.
-- You created a new machine on Equinix Metal to use as a runner. We use a smaller machine for this workshop, but you can use any machine size you want, provided it is the right architecture (x64 or arm64) for your code.
+- What sorts of code repositories would you want to run your own runners on?
+- What size machine would be right for your runners?

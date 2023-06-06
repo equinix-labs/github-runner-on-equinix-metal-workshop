@@ -8,18 +8,17 @@ Equinix Labs offers workshops, proof of concepts, and tools for exploring and bo
 
 The goals of this workshop are:
 
-* Become familiar with the Equinix digital infrastructure
-* Provision the infrastructure services
-* Start and test out a sample application.
+* Deploy a Github Self-hosted Runner on Equinix Metal
 
 ## Workshop agenda
 
-This workshop is split into four parts:
+This workshop is split into five parts:
 
 | Part | Title | Duration |
 | - | - | - |
-| 1 | Setup | 10 minutes |
-| 2 | Provisioning | 10 minutes |
-| 3 | Application | 8 minutes |
-| 4 | Conclusion | 2 minutes |
-
+| 1 | Setup | 15 minutes |
+| 2 | Deploy an Equinix Metal machine | 10 minutes |
+| 3 | Setup a Github Self-hosted runner | 15 minutes |
+| 4 | Run a job on your self-hosted runner | 10 minutes |
+| 5 | Conclusion | 5 minutes |
+`

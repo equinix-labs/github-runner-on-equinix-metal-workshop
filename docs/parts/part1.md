@@ -1,4 +1,4 @@
-# Part 1: Account Setup and Terraform Install
+# Part 1: Account Setup
 
 To run this workshop you will need access to an Equinix Metal Account or create a new one following step 1 below.
 
@@ -66,4 +66,3 @@ $ metal organization get
 Before proceeding to the next part let's take a few minutes to discuss what we did. Here are some questions to start the discussion.
 
 - Can we create API keys without manually using the portal?
-- I really don't have many resources deployed on Equinix Metal, why should I use Terraform?
