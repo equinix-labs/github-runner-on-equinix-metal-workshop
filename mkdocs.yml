@@ -11,10 +11,10 @@ nav:
   - Introduction: index.md
 
   - Parts:
-      - 1. Setup: parts/part1.md
-      - 2. Deploy an Equinix Metal machine: parts/part2.md
-      - 3. Setup a Github Self-hosted runner: parts/part3.md
-      - 4. Executing a Github Action on your self-hosted runner: parts/part4.md
+      - 1. Account and API Key Setup: parts/part1.md
+      - 2. Fork a Repo and Deploy a Server: parts/part2.md
+      - 3. Setup a Github Self-Hosted Runner: parts/part3.md
+      - 4. Execute a Github Action on your Runner: parts/part4.md
 
   - Conclusion: parts/conclusion.md
 
