@@ -1,52 +1,64 @@
 <!-- See https://squidfunk.github.io/mkdocs-material/reference/ -->
-# Part 3: Create a runner on the Github Actions page
+# Part 3: Setup a Github Self-Hosted Runner
+
+In this steps we'll be getting familiar with GitHub Self-Hosted Runners. If it's your first time using Self-Hosted Runners, take a few minutes to flip through their [documentation](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 ## Steps
 
-### 1. Navigate to your metal-cli fork
+### 1. Setup your forked repo to use Self-Hosted Runners
 
-For me it's [https://github.com/cprivitere/metal-cli](https://github.com/cprivitere/metal-cli)
+Navigate to your `metal-cli` fork. For me it's [https://github.com/cprivitere/metal-cli](https://github.com/cprivitere/metal-cli), however it'll be different per person. It'll be in the format:
 
-### 2. Go to the 'settings' tab
+```
+https://github.com/<your-github-username>/metal-cli
+```
 
-Click on the Settings tab and you should see a view like this:
+Click on the **Settings** tab, you should see a view like this:
 
 ![Metal CLI Settings Screenshot](../images/metal-cli-settings.png)
 
-### 3. On the left bar, click 'actions', then 'runners'
+On the left bar, click on **Actions**, then **Runners**.
 
 ![Metal CLI Settings Runners Screenshot](../images/metal-cli-settings-runners.png)
 
-### 4. Click the 'new self-hosted runner' button
+To create a new Self-Hosted Runner, click the **new self-hosted runner** button.
 
 ![Metal CLI Settings Runners New Screenshot](../images/metal-cli-settings-runners-new.png)
 
-### 5. Select the correct OS options, for our demo it's Linux x64
+Choose the correct OS and architecture option, if you're using the recommend system from the previous step, it would be **Linux** and **x64**.
 
 ![Metal CLI Settings Runner OS Screenshot](../images/metal-cli-settings-runners-os.png)
 
-### 6. You should now see instructions for downloading, configuring, and using the github runner software
+You should now see instructions for downloading, configuring, and using the GitHub Runner software.
 
 ![Metal CLI Settings Runner Instructions Screenshot](../images/metal-cli-settings-runners-instructions.png)
 
-### 7. Run the commands to download and configure the runner
+### 1. Run the commands to download and configure the runner
 
-- SSH to the machine you created earlier.
-- Install gcc, create a new user, and switch to it, the Github runner won't allow itself to be run as root.
+The first step to installing the GitHub Runner software would be to SSH into the machine you created earlier.
 
-  ```sh 
-  apt update
-  apt install build-essential gcc
-  useradd -m ghrunner -s /bin/bash
-  su - ghrunner
-  ```
+```sh
+ssh root@your-metal-server
+```
 
-- Copy and paste the download and configure sections from the 'Add New Runner' page in step 6 above.
-  - Take the defaults by just pressing enter when it asks for the group, name, labels, and work folder
-  - Don't forget to run ./run.sh
-  - If you were doing this as a long lived runner in production this would be better executed as a systemctl service...but long lived runners are actually not recommended, so just running ./run.sh inline is fine for today.
+You'll also need to install `gcc`, create a new user, and switch to it. Github Runners do not run as `root`.
 
-### 8. Your runner should now say it's 'Listening for Jobs'
+```sh 
+apt update
+apt install build-essential gcc
+useradd -m ghrunner -s /bin/bash
+su - ghrunner
+```
+
+Next, copy and paste the **Download** and **Configure** sections from the **Add New Runner** page from the previous step.
+
+!!! note
+
+  - Take the defaults by just pressing enter when it asks for the group, name, labels, and work folder.
+  - Don't forget to run `./run.sh`
+  - If you were doing this as a long lived runner in production this would be better executed as a systemctl service, but long lived runners are not recommended, so just running `./run.sh` inline is fine for today.
+
+Your runner should now say it's **Listening for Jobs**.
 
 ## Discussion
 

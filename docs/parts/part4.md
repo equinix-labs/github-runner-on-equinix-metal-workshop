@@ -1,21 +1,29 @@
 <!-- See https://squidfunk.github.io/mkdocs-material/reference/ -->
-# Part 3: Executing a Github Action on your self-hosted runner
+# Part 3: Execute a Github Action on your Runner
+
+Now that we've got our GitHub Self-Hosted Runner set up let's test it out by running some tests with GitHub Actions!
 
 ## Steps
 
-### 1. Let's go back to our fork of metal-cli
+### 1. Configure our forked `metal-cli` repo to use the new Self-Hosted Runner
 
-For me it's [https://github.com/cprivitere/metal-cli](https://github.com/cprivitere/metal-cli)
+Let's go back to our fork of metal-cli. For me it's [https://github.com/cprivitere/metal-cli](https://github.com/cprivitere/metal-cli).
 
-### 2. Click on 'Settings' -> 'Actions' -> 'Runners' again in the repo and you should see your new self-hosted runner
+Navigate to the Runner settings again by going to **Settings** > **Actions** > **Runners**. You should see your new self-hosted runner listed.
 
 ![Metal CLI Settings Runners Listing Screenshot](../images/metal-cli-settings-runners-listing.png)
 
-### 3. Now we go edit our github actions workflow to use a self-hosted runner
+Now we must edit our Github Actions workflow to use the new self-hosted runner. To do that, navigate to the file:
+
+```
+metal-cli/.github/workflows/test.yml
+```
 
 ![Metal CLI Github Actions Workflow Edit Screenshot](../images/metal-cli-github-actions-workflow-edit.png)
 
-### 4. Edit metal-cli/.github/workflows/test.yml and replace the line:
+Edit the `test.yml` file with the following changes.
+
+* Replace:
 
   ```yaml
       runs-on: ubuntu-latest
@@ -27,15 +35,13 @@ For me it's [https://github.com/cprivitere/metal-cli](https://github.com/cprivit
       runs-on: self-hosted
   ```
 
-- Also add
+* Underneath the `on:` line, add:
 
   ```yaml
     workflow_dispatch:
   ```
 
-  underneath the `on:` line
-
-Your test.yml file should now look like:
+Your `test.yml` file should now look like:
 
   ```yaml
   name: Go Tests
@@ -61,28 +67,32 @@ Your test.yml file should now look like:
         run: go test -v -cover -parallel 4 ./...
   ```
 
-- Commit your changes
+You can now commit your changes.
 
-### 5. Go back to 'Settings' -> 'Actions' -> 'General' and Allow all actions and reusable workflows
+### 2. Ensure your GitHub Actions are being run on your Self-Hosted Runner
+
+Go back to **Settings** > **Actions** > **General** and click on **Allow all actions and reusable workflows**. Save the changes.
 
 ![Metal CLI Settings Actions Allow All Screenshot](../images/metal-cli-settings-actions-allow-all.png)
 
-### 6. Now click on Actions and click on 'Go Tests' on the left side
+Next, click on **Actions** and click on **Go Tests**' on the left side.
 
 ![Metal CLI Actions Go Tests Screenshot](../images/metal-cli-actions-go-tests.png)
 
-### 7. Click the 'Run workflow' drop down on the right side and run it for the main branch
+Click the **Run workflow** drop down on the right side and run it for the main branch.
 
 ![Metal CLI Actions Go Tests Run Workflow Screenshot](../images/metal-cli-actions-go-tests-run-workflow.png)
 
-### 8. Now watch the output on your github runner and the output inside github
+Now watch the output on your GitHub Runner and the output inside GitHub. The following should appear:
 
-- `Running job: test` should appear
+```
+Running job: test
+```
 
 ## Discussion
 
 Before proceeding to the next part let's take a few minutes to discuss what we did. Here are some questions to start the discussion.
 
-- Can I use a mix of self-hosted and github-hosted runners within a workflow?
-- What sort of logging do I get from my self-hosted runner?
-- Can I see the results of my self-hosted runner on Github?
+* Can I use a mix of self-hosted and github-hosted runners within a workflow?
+* What sort of logging do I get from my self-hosted runner?
+* Can I see the results of my self-hosted runner on Github?

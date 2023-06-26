@@ -21,8 +21,6 @@ Thank you for participating in the workshop! Let's recap some of the key takeway
 - [Equinix Metal CLI Documentation](https://deploy.equinix.com/developers/docs/metal/libraries/cli/)
 - [Equinix Metal Pricing](https://deploy.equinix.com/metal/pricing/)
 
-## Next Steps
-
 ## Resources
 
 Here are a few other resources to look at to continue your Equinix Metal journey:

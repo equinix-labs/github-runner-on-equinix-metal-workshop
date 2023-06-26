@@ -1,4 +1,4 @@
-# Part 1: Account Setup
+# Part 1: Account and API Key Setup
 
 To run this workshop you will need access to an Equinix Metal Account or create a new one following step 1 below.
 
