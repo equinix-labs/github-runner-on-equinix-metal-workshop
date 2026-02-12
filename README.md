@@ -4,6 +4,10 @@
 
 This repository is [Experimental](experimental-statement.md) meaning that it's based on untested ideas or techniques and not yet established or finalized or involves a radically new and innovative style! This means that support is best effort (at best!) and we strongly encourage you to NOT use this in production.
 
+
+# Note
+With the upcoming EoL of Equinix Metal on June 30, 2026, this repo is being archived on February 28, 2026.
+
 <!---
 Using this template in a new project? See CONTIBUTING.md for help.
 --->
